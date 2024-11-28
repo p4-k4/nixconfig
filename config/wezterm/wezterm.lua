@@ -31,8 +31,17 @@ local colors = {
 
 local config = {
   -- Font configuration
-  font = wezterm.font("JetBrainsMono Nerd Font"),
+  font = wezterm.font("JetBrainsMono Nerd Font", {
+    weight = "Medium",
+    harfbuzz_features = {
+      "calt=1", "ss01=1", "ss02=1", "ss03=1", "ss04=1", "ss05=1", "ss06=1",
+      "ss07=1", "ss08=1", "cv01=1", "cv02=1", "cv03=1", "cv04=1",
+      "liga=1", "dlig=1",
+    },
+  }),
   font_size = 13.0,
+  line_height = 1.2,
+  cell_width = 1.0,
   
   -- Window configuration
   window_background_opacity = 0.85,
@@ -45,32 +54,25 @@ local config = {
     bottom = 5,
   },
   
+  -- Animation and performance
+  animation_fps = 60,
+  max_fps = 60,
+  front_end = "WebGpu",
+  webgpu_power_preference = "HighPerformance",
+  
   -- Color scheme
   colors = {
-    -- The default text color
     foreground = colors.fg,
-    -- The default background color
     background = colors.bg,
-    
-    -- Cursor colors
     cursor_bg = colors.fg,
     cursor_fg = colors.bg,
     cursor_border = colors.fg,
-    
-    -- Selection colors
     selection_fg = colors.fg,
     selection_bg = colors.bg_visual,
-    
-    -- Scrollbar colors
     scrollbar_thumb = colors.bg_highlight,
-    
-    -- Split colors
     split = colors.blue,
-    
-    -- The color of the compose cursor
     compose_cursor = colors.terminal.yellow,
 
-    -- Basic Colors (index 0-7)
     ansi = {
       colors.terminal.black,
       colors.terminal.red,
@@ -82,7 +84,6 @@ local config = {
       colors.terminal.white,
     },
 
-    -- Bright Colors (index 8-15)
     brights = {
       colors.terminal.black_bright,
       colors.terminal.red_bright,
@@ -94,31 +95,25 @@ local config = {
       colors.terminal.white_bright,
     },
 
-    -- Tab bar colors
     tab_bar = {
       background = colors.bg_dark,
-
       active_tab = {
         bg_color = colors.blue,
         fg_color = colors.bg_dark,
         intensity = "Bold",
       },
-
       inactive_tab = {
         bg_color = colors.bg_highlight,
         fg_color = colors.dark3,
       },
-
       inactive_tab_hover = {
         bg_color = colors.bg_highlight,
         fg_color = colors.blue,
       },
-
       new_tab = {
         bg_color = colors.bg,
         fg_color = colors.blue,
       },
-
       new_tab_hover = {
         bg_color = colors.bg,
         fg_color = colors.blue,
@@ -132,6 +127,37 @@ local config = {
   tab_bar_at_bottom = false,
   hide_tab_bar_if_only_one_tab = false,
   tab_max_width = 25,
+  
+  -- Custom tab bar format
+  tab_bar_style = {
+    new_tab = " + ",
+    new_tab_hover = " + ",
+  },
+  
+  -- Cursor configuration
+  default_cursor_style = "SteadyBar",
+  cursor_blink_rate = 800,
+  
+  -- Enable native macOS IME
+  use_ime = true,
+  
+  -- Disable annoying default keybindings
+  disable_default_key_bindings = true,
+  
+  -- Custom key bindings
+  keys = {
+    -- Tab management
+    { key = "t", mods = "CMD", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
+    { key = "w", mods = "CMD", action = wezterm.action.CloseCurrentTab { confirm = false } },
+    
+    -- Window management
+    { key = "n", mods = "CMD", action = wezterm.action.SpawnWindow },
+    
+    -- Font size
+    { key = "=", mods = "CMD", action = wezterm.action.IncreaseFontSize },
+    { key = "-", mods = "CMD", action = wezterm.action.DecreaseFontSize },
+    { key = "0", mods = "CMD", action = wezterm.action.ResetFontSize },
+  },
 }
 
 return config

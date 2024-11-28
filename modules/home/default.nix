@@ -30,8 +30,8 @@
       android-tools
       
       # Elixir Development
-      beam.packages.erlangR26.elixir
-      beam.packages.erlangR26.erlang
+      beam.packages.erlang_26.elixir
+      beam.packages.erlang_26.erlang
       elixir-ls
       inotify-tools # For file system events
       mix2nix # For converting mix.lock to nix
