@@ -82,6 +82,7 @@
       "wezterm"
       "google-chrome"
       "flutter"
+      "claude"
     ];
     masApps = {
       "eufy Security" = 1424956516;
