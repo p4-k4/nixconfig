@@ -1,7 +1,5 @@
 { pkgs, ... }: {
-  imports = [
-    ./wallpaper.nix
-  ];
+  imports = [ ./wallpaper.nix ];
 
   # System Configuration
   system.defaults = {
@@ -21,10 +19,10 @@
 
     # System-wide settings
     NSGlobalDomain = {
-      AppleInterfaceStyle = "Dark";  # Force dark mode
+      AppleInterfaceStyle = "Dark"; # Force dark mode
       AppleShowScrollBars = "WhenScrolling";
-      InitialKeyRepeat = 12;    # Normal minimum is 15 (225 ms)
-      KeyRepeat = 1;            # Normal minimum is 2 (30 ms)
+      InitialKeyRepeat = 12; # Normal minimum is 15 (225 ms)
+      KeyRepeat = 1; # Normal minimum is 2 (30 ms)
       NSAutomaticCapitalizationEnabled = false;
       NSAutomaticDashSubstitutionEnabled = false;
       NSAutomaticPeriodSubstitutionEnabled = false;
@@ -35,7 +33,7 @@
       NSTableViewDefaultSizeMode = 2;
       NSTextShowsControlCharacters = true;
       NSUseAnimatedFocusRing = false;
-      NSWindowResizeTime = 0.001;
+      NSWindowResizeTime = 1.0e-3;
       PMPrintingExpandedStateForPrint = true;
       PMPrintingExpandedStateForPrint2 = true;
     };
@@ -56,13 +54,9 @@
   # Nix Configuration
   services.nix-daemon.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+
   # Environment Configuration
-  environment.systemPackages = with pkgs; [
-    neovim
-    autojump
-    gh
-  ];
+  environment.systemPackages = with pkgs; [ neovim autojump gh ];
 
   # User Configuration
   users.users.paka = {
@@ -81,15 +75,13 @@
       cleanup = "zap";
       upgrade = true;
     };
-    taps = [
-      "nikitabobko/tap"
-    ];
-    brews = [
-      "mas"
-    ];
+    taps = [ "nikitabobko/tap" ];
+    brews = [ "mas" ];
     casks = [
       "nikitabobko/tap/aerospace"
       "wezterm"
+      "google-chrome"
+
     ];
     masApps = {
       "eufy Security" = 1424956516;
