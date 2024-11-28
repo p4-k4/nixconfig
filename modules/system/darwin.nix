@@ -10,7 +10,8 @@
   # Environment Configuration
   environment.systemPackages = with pkgs; [
     neovim
-    autojump  # Added autojump to system packages
+    autojump
+    gh  # Added GitHub CLI
   ];
 
   # User Configuration
