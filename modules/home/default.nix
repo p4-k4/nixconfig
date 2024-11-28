@@ -6,6 +6,7 @@
     ./programs/neovim.nix
     ./programs/wezterm.nix
     ./programs/aerospace.nix
+    ./programs/neovide.nix
   ];
 
   home = {
