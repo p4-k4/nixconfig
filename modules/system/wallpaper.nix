@@ -3,7 +3,7 @@
 let
   wallpaperScript = pkgs.writeScriptBin "set-wallpaper" ''
     #!${pkgs.stdenv.shell}
-    ${pkgs.osascript}/bin/osascript -e '
+    osascript -e '
       tell application "System Events"
         tell every desktop
           set picture to "${../../wallpaper.jpg}"
