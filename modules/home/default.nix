@@ -33,7 +33,6 @@
       beam.packages.erlang_26.elixir
       beam.packages.erlang_26.erlang
       elixir-ls
-      inotify-tools # For file system events
       mix2nix # For converting mix.lock to nix
       
       # Build tools
