@@ -24,8 +24,7 @@
       jq
 
       # Flutter/Dart Development
-      flutter
-      dart
+      flutter  # Flutter includes Dart runtime
       cocoapods
       android-tools
       
@@ -87,9 +86,9 @@
 
       git_status = {
         style = "red";
-        ahead = "⇡\${count}";
-        behind = "⇣\${count}";
-        diverged = "⇕⇡\${ahead_count}⇣\${behind_count}";
+        ahead = "⇡\$\\{count}";
+        behind = "⇣\$\\{count}";
+        diverged = "⇕⇡\$\\{ahead_count}⇣\$\\{behind_count}";
         modified = "!";
       };
 
@@ -100,11 +99,6 @@
 
       dart = {
         symbol = " ";
-        style = "blue";
-      };
-
-      flutter = {
-        symbol = "󰝚 ";
         style = "blue";
       };
     };

@@ -17,12 +17,16 @@ The system uses two main components:
    - User-specific packages and tools
    - XDG directory structure
    - Neovim configuration
+   - WezTerm configuration
+   - Aerospace window management
 
 ### Key Features
 
 - Declarative system configuration using Nix Flakes
 - Automated package management through Nix and Homebrew
 - LazyVim configuration maintained in config/nvim
+- WezTerm terminal emulator with Tokyo Night theme
+- Aerospace tiling window manager with custom workspace rules
 - Reproducible builds that work in air-gapped environments
 - Modular configuration structure
 
@@ -31,17 +35,21 @@ The system uses two main components:
 ```
 nixconfig/
 ├── config/
-│   └── nvim/          # LazyVim configuration
-│       ├── init.lua
-│       └── lua/
-│           ├── config/  # Core LazyVim config
-│           └── plugins/ # Plugin configurations
+│   ├── nvim/          # LazyVim configuration
+│   │   ├── init.lua
+│   │   └── lua/
+│   │       ├── config/  # Core LazyVim config
+│   │       └── plugins/ # Plugin configurations
+│   └── wezterm/       # WezTerm configuration
+│       └── wezterm.lua
 ├── modules/
 │   ├── home/          # Home-manager configurations
 │   │   ├── default.nix
 │   │   ├── shell.nix
 │   │   └── programs/
-│   │       └── neovim.nix  # Neovim package & integration
+│   │       ├── neovim.nix    # Neovim package & integration
+│   │       ├── wezterm.nix   # WezTerm configuration
+│   │       └── aerospace.nix # Window management
 │   └── system/        # System configurations
 │       └── darwin.nix
 └── flake.nix         # Main flake configuration
@@ -108,6 +116,27 @@ The system uses LazyVim with a configuration maintained in `config/nvim`. This s
    - `config/nvim/lua/config/`: Core LazyVim configuration
    - `config/nvim/lua/plugins/`: Plugin-specific configurations
 
+### WezTerm Configuration
+
+The terminal emulator is configured with:
+- Tokyo Night color scheme for consistent theming
+- JetBrainsMono Nerd Font with ligatures
+- Custom key bindings for efficient workflow
+- Semi-transparent background with blur effect
+- WebGPU renderer for better performance
+
+### Aerospace Window Management
+
+Tiling window manager configured with:
+- Custom workspace management
+- Automatic window rules for specific applications
+- Floating window support for utility apps
+- Auto-start configuration for essential applications
+- Specific handling for eufy Security and TP-Link Tapo apps:
+  - Auto-start on login
+  - Float by default
+  - Automatically move to workspace 5
+
 ### Shell Environment
 
 Configured through home-manager with:
@@ -124,6 +153,8 @@ Configured through home-manager with:
    - System settings in `modules/system/darwin.nix`
    - User settings in `modules/home/`
    - Neovim config in `config/nvim/`
+   - WezTerm config in `config/wezterm/`
+   - Window management in `modules/home/programs/aerospace.nix`
 
 2. Rebuild the system:
 ```sh
@@ -146,6 +177,8 @@ cd ~/nixconfig && nix flake update && darwin-rebuild switch --flake .#paka
 5. Maintain clear separation between system and user configurations
 6. Keep neovim configuration in its natural structure
 7. Use nix for package management, not plugin management
+8. Configure window management rules based on application behavior
+9. Maintain consistent theming across all components
 
 ## License
 

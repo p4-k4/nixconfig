@@ -5,7 +5,10 @@
     text = ''
       # AeroSpace Configuration
       after-login-command = []
-      after-startup-command = []
+      after-startup-command = [
+        "exec-and-forget osascript -e 'tell application \"eufy Security\" to activate'",
+        "exec-and-forget osascript -e 'tell application \"TP-Link Tapo\" to activate'"
+      ]
       start-at-login = true
 
       # Normalizations
@@ -20,6 +23,15 @@
 
       # Mouse follows focus
       on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+      # Window rules using callbacks
+      [[on-window-detected]]
+      if.app-name-regex-substring = "eufy Security"
+      run = ['layout floating', 'move-node-to-workspace 5']
+
+      [[on-window-detected]]
+      if.app-name-regex-substring = "TP-Link Tapo"
+      run = ['layout floating', 'move-node-to-workspace 5']
 
       # Gaps configuration
       [gaps]

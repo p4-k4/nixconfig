@@ -31,14 +31,12 @@ local colors = {
 
 local config = {
   -- Font configuration
-  font = wezterm.font("JetBrainsMono Nerd Font", {
+  font = wezterm.font {
+    family = "JetBrainsMono Nerd Font",
     weight = "Medium",
-    harfbuzz_features = {
-      "calt=1", "ss01=1", "ss02=1", "ss03=1", "ss04=1", "ss05=1", "ss06=1",
-      "ss07=1", "ss08=1", "cv01=1", "cv02=1", "cv03=1", "cv04=1",
-      "liga=1", "dlig=1",
-    },
-  }),
+    harfbuzz_features = { "calt=1", "ss01=1", "ss02=1", "ss03=1", "ss04=1", "ss05=1", "ss06=1",
+      "ss07=1", "ss08=1", "cv01=1", "cv02=1", "cv03=1", "cv04=1", "liga=1", "dlig=1" },
+  },
   font_size = 13.0,
   line_height = 1.2,
   cell_width = 1.0,
