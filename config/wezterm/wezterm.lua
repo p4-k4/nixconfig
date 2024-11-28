@@ -1,36 +1,32 @@
 local wezterm = require("wezterm")
 
--- Tokyo Night Dark colors
+-- Tokyo Night colors
 local colors = {
   bg = "#1a1b26",
   bg_dark = "#16161e",
   bg_highlight = "#292e42",
-  terminal_black = "#414868",
-  fg = "#c0caf5",
-  fg_dark = "#a9b1d6",
-  fg_gutter = "#3b4261",
+  bg_visual = "#33467c",
+  terminal = {
+    black = "#15161e",
+    red = "#f7768e",
+    green = "#9ece6a",
+    yellow = "#e0af68",
+    blue = "#7aa2f7",
+    magenta = "#bb9af7",
+    cyan = "#7dcfff",
+    white = "#a9b1d6",
+    black_bright = "#414868",
+    red_bright = "#f7768e",
+    green_bright = "#9ece6a",
+    yellow_bright = "#e0af68",
+    blue_bright = "#7aa2f7",
+    magenta_bright = "#bb9af7",
+    cyan_bright = "#7dcfff",
+    white_bright = "#c0caf5",
+  },
   dark3 = "#545c7e",
-  comment = "#565f89",
-  dark5 = "#737aa2",
-  blue0 = "#3d59a1",
   blue = "#7aa2f7",
-  cyan = "#7dcfff",
-  blue1 = "#2ac3de",
-  blue2 = "#0db9d7",
-  blue5 = "#89ddff",
-  blue6 = "#b4f9f8",
-  blue7 = "#394b70",
-  magenta = "#bb9af7",
-  magenta2 = "#ff007c",
-  purple = "#9d7cd8",
-  orange = "#ff9e64",
-  yellow = "#e0af68",
-  green = "#9ece6a",
-  green1 = "#73daca",
-  green2 = "#41a6b5",
-  teal = "#1abc9c",
-  red = "#f7768e",
-  red1 = "#db4b4b",
+  fg = "#c0caf5",
 }
 
 return {
@@ -55,79 +51,84 @@ return {
     -- The default background color
     background = colors.bg,
     
-    -- Overrides the cell background color when the current cell is occupied by the
-    -- cursor and the cursor style is set to Block
+    -- Cursor colors
     cursor_bg = colors.fg,
-    -- Overrides the text color when the current cell is occupied by the cursor
     cursor_fg = colors.bg,
-    -- Specifies the border color of the cursor when the cursor style is set to Block,
-    -- or the color of the vertical or horizontal bar when the cursor style is set to
-    -- Bar or Underline.
     cursor_border = colors.fg,
     
-    -- the foreground color of selected text
-    selection_fg = colors.bg,
-    -- the background color of selected text
-    selection_bg = colors.fg_gutter,
+    -- Selection colors
+    selection_fg = colors.fg,
+    selection_bg = colors.bg_visual,
     
-    -- The color of the scrollbar "thumb"; the portion that represents the current viewport
-    scrollbar_thumb = colors.terminal_black,
+    -- Scrollbar colors
+    scrollbar_thumb = colors.bg_highlight,
     
-    -- The color of the split lines between panes
-    split = colors.terminal_black,
+    -- Split colors
+    split = colors.blue,
     
+    -- The color of the compose cursor
+    compose_cursor = colors.terminal.yellow,
+
+    -- Basic Colors (index 0-7)
     ansi = {
-      colors.terminal_black,
-      colors.red,
-      colors.green,
-      colors.yellow,
-      colors.blue,
-      colors.magenta,
-      colors.cyan,
-      colors.fg_dark,
+      colors.terminal.black,
+      colors.terminal.red,
+      colors.terminal.green,
+      colors.terminal.yellow,
+      colors.terminal.blue,
+      colors.terminal.magenta,
+      colors.terminal.cyan,
+      colors.terminal.white,
     },
+
+    -- Bright Colors (index 8-15)
     brights = {
-      colors.terminal_black,
-      colors.red,
-      colors.green,
-      colors.yellow,
-      colors.blue,
-      colors.magenta,
-      colors.cyan,
-      colors.fg,
-    },
-    
-    -- Indexed colors
-    indexed = {
-      [16] = colors.orange,
-      [17] = colors.red1,
+      colors.terminal.black_bright,
+      colors.terminal.red_bright,
+      colors.terminal.green_bright,
+      colors.terminal.yellow_bright,
+      colors.terminal.blue_bright,
+      colors.terminal.magenta_bright,
+      colors.terminal.cyan_bright,
+      colors.terminal.white_bright,
     },
   },
-  
-  -- Tab bar
+
+  -- Tab bar configuration
   use_fancy_tab_bar = false,
+  tab_bar_at_bottom = false,
+  hide_tab_bar_if_only_one_tab = false,
+  tab_max_width = 25,
+
   colors = {
     tab_bar = {
       background = colors.bg_dark,
+
       active_tab = {
-        bg_color = colors.bg,
-        fg_color = colors.fg,
+        bg_color = colors.blue,
+        fg_color = colors.bg_dark,
+        intensity = "Bold",
       },
+
       inactive_tab = {
-        bg_color = colors.bg_dark,
-        fg_color = colors.dark5,
+        bg_color = colors.bg_highlight,
+        fg_color = colors.dark3,
       },
+
       inactive_tab_hover = {
         bg_color = colors.bg_highlight,
-        fg_color = colors.fg,
+        fg_color = colors.blue,
       },
+
       new_tab = {
-        bg_color = colors.bg_dark,
-        fg_color = colors.dark5,
+        bg_color = colors.bg,
+        fg_color = colors.blue,
       },
+
       new_tab_hover = {
-        bg_color = colors.bg_highlight,
-        fg_color = colors.fg,
+        bg_color = colors.bg,
+        fg_color = colors.blue,
+        intensity = "Bold",
       },
     },
   },
