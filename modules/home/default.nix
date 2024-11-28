@@ -4,15 +4,30 @@
   imports = [
     ./shell.nix
     ./programs/neovim.nix
+    ./programs/wezterm.nix
   ];
 
-  # Common home-manager configuration
   home = {
-    stateVersion = "23.11";
     username = "paka";
     homeDirectory = "/Users/paka";
+    stateVersion = "23.11";
+
+    packages = with pkgs; [
+      # Development tools
+      git
+      gh
+      ripgrep
+      fd
+      tree
+      jq
+
+      # System tools
+      htop
+      wget
+      curl
+    ];
   };
 
-  # Let Home Manager install and manage itself
+  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
