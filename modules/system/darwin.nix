@@ -19,8 +19,9 @@
     NSGlobalDomain = {
       AppleInterfaceStyle = "Dark";  # Force dark mode
       AppleShowScrollBars = "WhenScrolling";
-      InitialKeyRepeat = 15;
-      KeyRepeat = 2;
+      # Keyboard settings - lower is faster
+      InitialKeyRepeat = 12;    # Normal minimum is 15 (225 ms)
+      KeyRepeat = 1;            # Normal minimum is 2 (30 ms)
       NSAutomaticCapitalizationEnabled = false;
       NSAutomaticDashSubstitutionEnabled = false;
       NSAutomaticPeriodSubstitutionEnabled = false;
