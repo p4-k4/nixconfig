@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  nvimConfigDir = ../../../config/nvim;
+in
 {
   programs.neovim = {
     enable = true;
@@ -23,7 +26,7 @@
 
   # Link our LazyVim config
   xdg.configFile."nvim" = {
-    source = ../../../../config/nvim;
+    source = nvimConfigDir;
     recursive = true;
   };
 
