@@ -14,17 +14,33 @@ The system uses two main components:
 
 2. **home-manager**: Manages user-level configurations
    - Shell environment (zsh with oh-my-zsh)
-   - Neovim with LazyVim configuration
-   - XDG directory structure
    - User-specific packages and tools
+   - XDG directory structure
 
 ### Key Features
 
 - Declarative system configuration using Nix Flakes
 - Automated package management through Nix and Homebrew
-- LazyVim-based Neovim configuration with Nix-managed plugins
+- LazyVim configuration maintained in config/nvim
 - Reproducible builds that work in air-gapped environments
 - Modular configuration structure
+
+## Directory Structure
+
+```
+nixconfig/
+├── config/
+│   └── nvim/          # LazyVim configuration
+├── modules/
+│   ├── home/          # Home-manager configurations
+│   │   ├── default.nix
+│   │   ├── shell.nix
+│   │   └── programs/
+│   │       └── neovim.nix
+│   └── system/        # System configurations
+│       └── darwin.nix
+└── flake.nix         # Main flake configuration
+```
 
 ## Initial Setup
 
@@ -44,7 +60,7 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 
 1. Clone this repository:
 ```sh
-git clone <repository-url> ~/nixconfig
+git clone https://github.com/p4-k4/nixconfig.git ~/nixconfig
 ```
 
 2. Build and activate the configuration:
@@ -52,31 +68,15 @@ git clone <repository-url> ~/nixconfig
 cd ~/nixconfig && nix build .#darwinConfigurations.paka.system && ./result/sw/bin/darwin-rebuild switch --flake .#paka
 ```
 
-## System Components
-
-### Directory Structure
-
-```
-nixconfig/
-├── flake.nix              # Main flake configuration
-├── modules/
-│   ├── home/             # Home-manager configurations
-│   │   ├── default.nix   # Main home-manager config
-│   │   ├── shell.nix     # Shell configuration
-│   │   └── programs/     # Program-specific configs
-│   │       └── neovim.nix
-│   └── system/           # System configurations
-│       └── darwin.nix    # Darwin-specific settings
-```
+## Components
 
 ### Neovim Configuration
 
-The system uses LazyVim with plugins managed through nixpkgs for reproducibility:
-- LSP servers and development tools
-- Treesitter integration
-- Telescope for fuzzy finding
-- Git integration
-- Modern UI components
+The system uses LazyVim with a configuration maintained in `config/nvim`. This allows for:
+- Easy configuration updates through standard LazyVim structure
+- Direct editing of lua files in the repository
+- Automatic deployment through home-manager
+- LSP servers and development tools managed by nix
 
 ### Shell Environment
 
@@ -91,7 +91,8 @@ Configured through home-manager with:
 ### Making Changes
 
 1. Edit configuration files in the appropriate module
-2. Rebuild the system:
+2. For neovim changes, edit files directly in config/nvim
+3. Rebuild the system:
 ```sh
 cd ~/nixconfig && darwin-rebuild switch --flake .#paka
 ```
