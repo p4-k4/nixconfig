@@ -1,11 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  # Flutter from master branch
-  flutter-master = pkgs.flutter.override {
-    channel = "master";
-  };
-in
 {
   imports = [
     ./shell.nix
@@ -30,7 +24,7 @@ in
       jq
 
       # Flutter/Dart Development
-      flutter-master
+      flutter
       dart
       cocoapods
       android-tools
