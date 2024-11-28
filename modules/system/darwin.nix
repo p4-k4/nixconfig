@@ -81,7 +81,7 @@
       "nikitabobko/tap/aerospace"
       "wezterm"
       "google-chrome"
-
+      "flutter"
     ];
     masApps = {
       "eufy Security" = 1424956516;

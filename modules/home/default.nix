@@ -23,8 +23,7 @@
       tree
       jq
 
-      # Flutter/Dart Development
-      flutter  # Flutter includes Dart runtime
+      # iOS Development
       cocoapods
       android-tools
       
@@ -86,9 +85,9 @@
 
       git_status = {
         style = "red";
-        ahead = "⇡\$\\{count}";
-        behind = "⇣\$\\{count}";
-        diverged = "⇕⇡\$\\{ahead_count}⇣\$\\{behind_count}";
+        ahead = "⇡\${count}";
+        behind = "⇣\${count}";
+        diverged = "⇕⇡\${ahead_count}⇣\${behind_count}";
         modified = "!";
       };
 
