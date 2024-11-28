@@ -35,7 +35,8 @@ local config = {
   font_size = 13.0,
   
   -- Window configuration
-  window_background_opacity = 0.95,
+  window_background_opacity = 0.85,
+  macos_window_background_blur = 30,
   window_decorations = "RESIZE",
   window_padding = {
     left = 5,
