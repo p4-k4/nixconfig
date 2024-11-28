@@ -18,8 +18,6 @@
     # System-wide settings
     NSGlobalDomain = {
       AppleInterfaceStyle = "Dark";  # Force dark mode
-      AppleAccentColor = 4;  # Blue accent color (closest to Tokyo Night)
-      AppleHighlightColor = "0.968627 0.831373 0.407843 1.0"; # Tokyo Night yellow
       AppleShowScrollBars = "WhenScrolling";
       InitialKeyRepeat = 15;
       KeyRepeat = 2;
@@ -45,9 +43,7 @@
     };
 
     # Spaces settings
-    spaces = {
-      spans-displays = false;
-    };
+    spaces.spans-displays = false;
   };
 
   # System Configuration
