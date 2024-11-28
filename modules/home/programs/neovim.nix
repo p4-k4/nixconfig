@@ -12,15 +12,29 @@ in
 
     # Install needed packages
     extraPackages = with pkgs; [
-      # LSP servers and tools
-      lua-language-server
-      nil # Nix LSP
-      nodePackages.typescript-language-server
-      nodePackages.vscode-langservers-extracted # html, css, json, eslint
-      ripgrep
-      fd
-      tree-sitter
-      stylua
+      # LSP servers
+      lua-language-server        # lua_ls
+      nil                       # nil_ls (Nix)
+      nodePackages.typescript-language-server  # tsserver
+      nodePackages.vscode-langservers-extracted  # html, css, json, eslint
+      nodePackages."@tailwindcss/language-server"  # tailwindcss
+      nodePackages.svelte-language-server  # svelte
+      nodePackages."@astrojs/language-server"  # astro
+      elixir-ls
+      gopls
+      rust-analyzer
+      clang-tools  # clangd
+      
+      # Formatters and linters
+      stylua       # Lua formatting
+      nixfmt       # Nix formatting
+      prettierd    # Web formatting
+      eslint_d     # JavaScript/TypeScript linting
+      
+      # Tools
+      ripgrep      # Required for telescope
+      fd           # Required for telescope
+      tree-sitter  # Required for treesitter
     ];
   };
 
