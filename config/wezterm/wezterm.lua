@@ -29,7 +29,7 @@ local colors = {
   fg = "#c0caf5",
 }
 
-return {
+local config = {
   -- Font configuration
   font = wezterm.font("JetBrainsMono Nerd Font"),
   font_size = 13.0,
@@ -92,15 +92,8 @@ return {
       colors.terminal.cyan_bright,
       colors.terminal.white_bright,
     },
-  },
 
-  -- Tab bar configuration
-  use_fancy_tab_bar = false,
-  tab_bar_at_bottom = false,
-  hide_tab_bar_if_only_one_tab = false,
-  tab_max_width = 25,
-
-  colors = {
+    -- Tab bar colors
     tab_bar = {
       background = colors.bg_dark,
 
@@ -132,4 +125,12 @@ return {
       },
     },
   },
+
+  -- Tab bar configuration
+  use_fancy_tab_bar = false,
+  tab_bar_at_bottom = false,
+  hide_tab_bar_if_only_one_tab = false,
+  tab_max_width = 25,
 }
+
+return config
