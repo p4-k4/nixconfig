@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   programs.zsh = {
@@ -6,13 +6,7 @@
     autosuggestion.enable = true;
     enableCompletion = true;
     
-    # Enable vi mode
-    defaultKeymap = "viins";
     initExtra = ''
-      # Vi mode settings
-      bindkey -v
-      export KEYTIMEOUT=1  # Reduce mode switch delay
-
       # Use vim keys in tab complete menu
       bindkey -M menuselect 'h' vi-backward-char
       bindkey -M menuselect 'k' vi-up-line-or-history
@@ -30,26 +24,6 @@
       bindkey "^[OB" down-line-or-beginning-search
       bindkey "^[[A" up-line-or-beginning-search
       bindkey "^[[B" down-line-or-beginning-search
-
-      # Change cursor shape for different vi modes
-      function zle-keymap-select {
-        if [[ ''${KEYMAP} == vicmd ]] ||
-           [[ $1 = 'block' ]]; then
-          echo -ne '\e[1 q'  # Block cursor for normal mode
-        elif [[ ''${KEYMAP} == main ]] ||
-             [[ ''${KEYMAP} == viins ]] ||
-             [[ ''${KEYMAP} = "" ]] ||
-             [[ $1 = 'beam' ]]; then
-          echo -ne '\e[5 q'  # Beam cursor for insert mode
-        fi
-      }
-      zle -N zle-keymap-select
-
-      # Use beam shape cursor on startup
-      echo -ne '\e[5 q'
-
-      # Use beam shape cursor for each new prompt
-      preexec() { echo -ne '\e[5 q' ;}
 
       # Edit command in vim with 'v'
       autoload -Uz edit-command-line
@@ -85,9 +59,6 @@
         mix ecto.setup
         echo "✨ Setup complete!"
       }
-
-      # Initialize Starship prompt
-      eval "$(starship init zsh)"
     '';
 
     shellAliases = {
