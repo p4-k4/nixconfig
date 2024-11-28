@@ -92,8 +92,8 @@
       "wezterm"
     ];
     masApps = {
-      "eufy Security" = 1501114405;
-      "TP-Link Tapo" = 1472722739;
+      "eufy Security" = 1424956516;
+      "Tapo" = 1472718009;
     };
   };
 

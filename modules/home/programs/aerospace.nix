@@ -30,7 +30,7 @@
       run = ['layout floating', 'move-node-to-workspace 5']
 
       [[on-window-detected]]
-      if.app-name-regex-substring = "TP-Link Tapo"
+      if.app-name-regex-substring = "Tapo"
       run = ['layout floating', 'move-node-to-workspace 5']
 
       # Gaps configuration
