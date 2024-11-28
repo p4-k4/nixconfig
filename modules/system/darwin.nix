@@ -1,4 +1,8 @@
 { pkgs, ... }: {
+  imports = [
+    ./wallpaper.nix
+  ];
+
   # System Configuration
   system.defaults = {
     dock = {
@@ -19,7 +23,6 @@
     NSGlobalDomain = {
       AppleInterfaceStyle = "Dark";  # Force dark mode
       AppleShowScrollBars = "WhenScrolling";
-      # Keyboard settings - lower is faster
       InitialKeyRepeat = 12;    # Normal minimum is 15 (225 ms)
       KeyRepeat = 1;            # Normal minimum is 2 (30 ms)
       NSAutomaticCapitalizationEnabled = false;
