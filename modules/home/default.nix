@@ -30,7 +30,6 @@
       # Elixir Development
       beam.packages.erlang_26.elixir
       beam.packages.erlang_26.erlang
-      elixir-ls
       mix2nix # For converting mix.lock to nix
       
       # Build tools

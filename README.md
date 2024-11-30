@@ -29,6 +29,10 @@ The system uses two main components:
 - Aerospace tiling window manager with custom workspace rules
 - Reproducible builds that work in air-gapped environments
 - Modular configuration structure
+- Elixir development environment with:
+  - Elixir and Erlang via Nix
+  - ElixirLS language server via Homebrew
+  - Mix2nix for dependency management
 
 ## Directory Structure
 
@@ -179,6 +183,7 @@ cd ~/nixconfig && nix flake update && darwin-rebuild switch --flake .#paka
 7. Use nix for package management, not plugin management
 8. Configure window management rules based on application behavior
 9. Maintain consistent theming across all components
+10. Keep repository clean by ignoring system-specific files (.DS_Store)
 
 ## License
 

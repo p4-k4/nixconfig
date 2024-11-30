@@ -3,6 +3,9 @@
 {
   homebrew = {
     enable = true;
+    brews = [
+      "elixir-ls"
+    ];
     casks = [
       "flutter"
     ];
