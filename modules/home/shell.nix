@@ -5,8 +5,11 @@
     enable = true;
     autosuggestion.enable = true;
     enableCompletion = true;
-    
+
     initExtra = ''
+      # Initialize autojump
+      source ${pkgs.autojump}/share/autojump/autojump.zsh
+
       # Use vim keys in tab complete menu
       bindkey -M menuselect 'h' vi-backward-char
       bindkey -M menuselect 'k' vi-up-line-or-history
@@ -66,19 +69,19 @@
       ll = "ls -la";
       ".." = "cd ..";
       "..." = "cd ../..";
-      
+
       # Git
       "gst" = "git status";
       "gco" = "git checkout";
       "gcm" = "git commit -m";
       "gaa" = "git add .";
       "gp" = "git push";
-      
+
       # Flutter
       "fr" = "flutter run";
       "fpg" = "flutter pub get";
       "fpr" = "flutter pub run";
-      
+
       # Elixir
       "mt" = "mix test";
       "mps" = "mix phx.server";
@@ -89,13 +92,7 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = [
-        "git"
-        "docker"
-        "docker-compose"
-        "npm"
-        "vi-mode"
-      ];
+      plugins = [ "autojump" "git" "docker" "docker-compose" "npm" "vi-mode" ];
       theme = "robbyrussell";
     };
   };
