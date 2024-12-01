@@ -56,6 +56,7 @@ vim.keymap.set("n", ".n", vim.lsp.buf.rename, { desc = "Rename symbol" })
 vim.keymap.set("n", ".s", vim.lsp.buf.signature_help, { desc = "Show signature help" })
 vim.keymap.set("n", ".a", vim.lsp.buf.code_action, { desc = "Code action" })
 vim.keymap.set("v", ".a", vim.lsp.buf.code_action, { desc = "Code action" })
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
 vim.keymap.set("n", ".f", vim.lsp.buf.format, { desc = "Format document" })
 vim.keymap.set("n", ".h", vim.lsp.buf.hover, { desc = "Show hover information" })
 
