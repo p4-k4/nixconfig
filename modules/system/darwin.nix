@@ -56,7 +56,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Environment Configuration
-  environment.systemPackages = with pkgs; [ neovim autojump gh ];
+  environment.systemPackages = with pkgs; [ neovim autojump gh ffmpeg ];
 
   # User Configuration
   users.users.paka = {
