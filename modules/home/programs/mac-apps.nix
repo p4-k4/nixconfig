@@ -3,12 +3,8 @@
 {
   homebrew = {
     enable = true;
-    brews = [
-      "elixir-ls"
-    ];
-    casks = [
-      "flutter"
-    ];
+    brews = [ "elixir-ls" ];
+    casks = [ "flutter" "claude" ];
   };
 
   home.packages = with pkgs; [

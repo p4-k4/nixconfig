@@ -22,16 +22,17 @@
       fd
       tree
       jq
+      ollama
 
       # iOS Development
       cocoapods
       android-tools
-      
+
       # Elixir Development
       beam.packages.erlang_26.elixir
       beam.packages.erlang_26.erlang
       mix2nix # For converting mix.lock to nix
-      
+
       # Build tools
       pkg-config
       cmake
@@ -41,7 +42,7 @@
       htop
       wget
       curl
-      
+
       # Shell enhancements
       starship # Modern prompt
     ];
@@ -70,7 +71,7 @@
         success_symbol = "[󰄾](blue)";
         error_symbol = "[󰄾](red)";
       };
-      
+
       directory = {
         style = "blue";
         truncation_length = 3;
