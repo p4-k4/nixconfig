@@ -4,7 +4,7 @@
   homebrew = {
     enable = true;
     brews = [ "elixir-ls" ];
-    casks = [ "flutter" "claude" ];
+    casks = [ "flutter" "claude" "discord" ];
   };
 
   home.packages = with pkgs; [
