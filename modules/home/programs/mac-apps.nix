@@ -3,7 +3,7 @@
 {
   homebrew = {
     enable = true;
-    brews = [ "elixir-ls" ];
+    brews = [ "elixir-ls" "postgresql@17" ];
     casks = [ "flutter" "claude" "discord" ];
   };
 
