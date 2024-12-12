@@ -76,13 +76,18 @@
       upgrade = true;
     };
     taps = [ "nikitabobko/tap" ];
-    brews = [ "mas" ];
+    brews = [ 
+      "mas"
+      "elixir-ls"
+      "postgresql@17"
+    ];
     casks = [
       "nikitabobko/tap/aerospace"
       "wezterm"
       "google-chrome"
       "flutter"
       "claude"
+      "discord"
     ];
     masApps = {
       "eufy Security" = 1424956516;
