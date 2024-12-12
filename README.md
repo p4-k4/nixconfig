@@ -7,6 +7,7 @@ This repository contains a complete system configuration for macOS using nix-dar
 The system uses two main components:
 
 1. **nix-darwin**: Manages system-level configuration and packages
+
    - System packages and dependencies
    - System settings and defaults
    - Homebrew formulae and casks
@@ -64,17 +65,20 @@ nixconfig/
 ### Prerequisites
 
 1. Install Nix using the Determinate Systems installer:
+
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 ```
 
 2. Enable Flakes and Nix Command:
+
 ```sh
 mkdir -p ~/.config/nix
 echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 ```
 
 3. Install Homebrew:
+
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
@@ -82,13 +86,15 @@ echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 ### First-Time Setup
 
 1. Clone this repository:
+
 ```sh
 git clone https://github.com/p4-k4/nixconfig.git ~/nixconfig
 ```
 
 2. Build and activate the configuration:
+
 ```sh
-cd ~/nixconfig && nix build .#darwinConfigurations.paka.system && ./result/sw/bin/darwin-rebuild switch --flake .#paka
+nix build .#darwinConfigurations.pakas-Mac-mini.system && ./result/sw/bin/darwin-rebuild switch --flake .#pakas-Mac-mini
 ```
 
 ## Components
@@ -98,17 +104,20 @@ cd ~/nixconfig && nix build .#darwinConfigurations.paka.system && ./result/sw/bi
 The system uses LazyVim with a configuration maintained in `config/nvim`. This setup:
 
 1. **Configuration Structure**:
+
    - Maintains LazyVim's natural directory structure in `config/nvim`
    - All lua files are kept in their standard locations
    - Easy to edit and maintain like a normal LazyVim setup
 
 2. **Integration with Nix**:
+
    - Configuration is symlinked by home-manager
    - LSP servers and tools installed through nix
    - Plugins managed by lazy.nvim for flexibility
    - System dependencies handled by nix
 
 3. **Usage**:
+
    - Edit configuration files directly in `config/nvim`
    - Add new plugins in `config/nvim/lua/plugins`
    - Run `darwin-rebuild switch --flake .#paka` to apply changes
@@ -123,6 +132,7 @@ The system uses LazyVim with a configuration maintained in `config/nvim`. This s
 ### WezTerm Configuration
 
 The terminal emulator is configured with:
+
 - Tokyo Night color scheme for consistent theming
 - JetBrainsMono Nerd Font with ligatures
 - Custom key bindings for efficient workflow
@@ -132,6 +142,7 @@ The terminal emulator is configured with:
 ### Aerospace Window Management
 
 Tiling window manager configured with:
+
 - Custom workspace management
 - Automatic window rules for specific applications
 - Floating window support for utility apps
@@ -144,6 +155,7 @@ Tiling window manager configured with:
 ### Shell Environment
 
 Configured through home-manager with:
+
 - Zsh as the default shell
 - Oh-my-zsh for enhanced functionality
 - Custom plugins and themes
@@ -154,6 +166,7 @@ Configured through home-manager with:
 ### Making Changes
 
 1. Edit configuration files in the appropriate module:
+
    - System settings in `modules/system/darwin.nix`
    - User settings in `modules/home/`
    - Neovim config in `config/nvim/`
@@ -161,6 +174,7 @@ Configured through home-manager with:
    - Window management in `modules/home/programs/aerospace.nix`
 
 2. Rebuild the system:
+
 ```sh
 cd ~/nixconfig && darwin-rebuild switch --flake .#paka
 ```
@@ -168,6 +182,7 @@ cd ~/nixconfig && darwin-rebuild switch --flake .#paka
 ### System Updates
 
 To update all packages and configurations:
+
 ```sh
 cd ~/nixconfig && nix flake update && darwin-rebuild switch --flake .#paka
 ```
