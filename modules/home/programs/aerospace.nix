@@ -42,6 +42,15 @@
       outer.top = 10
       outer.right = 10
 
+
+      [workspace-to-monitor-force-assignment]
+      1 = 'Q32V3WG5'
+      2 = 'Q32V3WG5'
+      3 = 'Q32V3WG5'
+      4 = 'Q32V3WG5'
+      5 = 'Q32V3WG5'
+      6 = 'PHL 223V7'
+
       # Main mode bindings
       [mode.main.binding]
       alt-slash = 'layout tiles horizontal vertical'
@@ -63,6 +72,7 @@
       alt-shift-minus = 'resize smart -50'
       alt-shift-equal = 'resize smart +50'
 
+
       # Workspaces
       alt-1 = 'workspace 1'
       alt-2 = 'workspace 2'
@@ -70,9 +80,6 @@
       alt-4 = 'workspace 4'
       alt-5 = 'workspace 5'
       alt-6 = 'workspace 6'
-      alt-7 = 'workspace 7'
-      alt-8 = 'workspace 8'
-      alt-9 = 'workspace 9'
 
       # Move to workspace
       alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
@@ -81,9 +88,6 @@
       alt-shift-4 = 'move-node-to-workspace 4'
       alt-shift-5 = 'move-node-to-workspace 5'
       alt-shift-6 = 'move-node-to-workspace 6'
-      alt-shift-7 = 'move-node-to-workspace 7'
-      alt-shift-8 = 'move-node-to-workspace 8'
-      alt-shift-9 = 'move-node-to-workspace 9'
 
       # Quick workspace switching
       alt-tab = 'workspace-back-and-forth'
