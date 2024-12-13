@@ -47,9 +47,9 @@
       1 = 'Q32V3WG5'
       2 = 'Q32V3WG5'
       3 = 'Q32V3WG5'
-      4 = 'Q32V3WG5'
-      5 = 'Q32V3WG5'
-      0 = 'PHL 223V7'
+      4 = 'PHL 223V7'
+      5 = 'PHL 223V7'
+      # 0 = 'PHL 223V7'
 
       # Main mode bindings
       [mode.main.binding]
@@ -79,7 +79,7 @@
       alt-3 = 'workspace 3'
       alt-4 = 'workspace 4'
       alt-5 = 'workspace 5'
-      alt-0 = 'workspace 6'
+      # alt-0 = 'workspace 6'
 
       # Move to workspace
       alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
@@ -87,7 +87,7 @@
       alt-shift-3 = 'move-node-to-workspace 3'
       alt-shift-4 = 'move-node-to-workspace 4'
       alt-shift-5 = 'move-node-to-workspace 5'
-      alt-shift-0 = 'move-node-to-workspace 6'
+      # alt-shift-0 = 'move-node-to-workspace 6'
 
       # Quick workspace switching
       alt-tab = 'workspace-back-and-forth'
