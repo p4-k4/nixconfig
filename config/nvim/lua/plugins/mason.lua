@@ -4,7 +4,7 @@ return {
   { "williamboman/mason-lspconfig.nvim", enabled = false },
   { "jay-babu/mason-null-ls.nvim", enabled = false },
   { "jay-babu/mason-nvim-dap.nvim", enabled = false },
-  
+
   -- Configure LSP directly (without mason)
   {
     "neovim/nvim-lspconfig",
@@ -23,14 +23,14 @@ return {
 
         -- System/General
         lua_ls = {},
-        nil_ls = {},  -- Nix
+        nil_ls = {}, -- Nix
         clangd = {},
-        
+
         -- Additional languages
-        elixirls = {
-          -- Mason usually handles this, but since we're using nix:
-          cmd = { "elixir-ls" },
-        },
+        -- elixirls = {
+        --   -- Mason usually handles this, but since we're using nix:
+        --   cmd = { "elixir-ls" },
+        -- },
         gopls = {},
         rust_analyzer = {},
       },
